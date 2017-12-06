@@ -1,0 +1,16 @@
+// @flow
+import React from "react"
+import Paper from "material-ui/Paper"
+import App from "../../App"
+import { type Props as ListProps } from "./List"
+import { List } from "./"
+
+type Props = ListProps
+
+export default ({ items }: Props) => (
+  <App title='投稿リスト'>
+    <Paper>
+      <List items={items} />
+    </Paper>
+  </App>
+)

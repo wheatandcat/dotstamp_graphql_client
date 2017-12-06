@@ -1,0 +1,64 @@
+{
+  "name": "dotstamp_admin_client",
+  "version": "0.1.0",
+  "author": "wheatandcat",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-client": "^2.1.0",
+    "graphql": "^0.11.7",
+    "graphql-tag": "^2.5.0",
+    "history": "^4.7.2",
+    "material-ui": "next",
+    "material-ui-icons": "^1.0.0-beta.17",
+    "react": "^16.2.0",
+    "react-apollo": "^2.0.1",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^4.0.8",
+    "react-scripts": "^1.0.17",
+    "recompose": "^0.26.0",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "styled-components": "^2.2.4"
+  },
+  "scripts": {
+    "start": "react-scripts  start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public",
+    "deploy-storybook": "storybook-to-ghpages"
+  },
+  "proxy": {
+    "/graphql": {
+      "target": "http://localhost:8080"
+    }
+  },
+  "storybook-deployer": {
+    "gitUsername": "wheatandcat",
+    "gitEmail": "wheatandcat@gamail.com",
+    "commitMessage": ".stamp admin storybook to GitHub Pages"
+  },
+  "devDependencies": {
+    "@personare/react-storybook-decorator-github-corner": "^0.1.5",
+    "@storybook/addon-actions": "^3.2.17",
+    "@storybook/addon-knobs": "^3.2.17",
+    "@storybook/addon-links": "^3.2.17",
+    "@storybook/react": "^3.2.17",
+    "@storybook/storybook-deployer": "^2.0.0",
+    "eslint": "^4.12.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-config-standard-react": "^5.0.0",
+    "eslint-plugin-flowtype": "^2.37.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.5.1",
+    "eslint-plugin-standard": "^3.0.1",
+    "flow-bin": "^0.60.1",
+    "prettier": "^1.9.0"
+  }
+}

@@ -13,7 +13,9 @@ export type Props = {
   deletedAt: ?string
 }
 
-export default ({ id, title, userId, viewStatus, createdAt, updatedAt, deletedAt }: Props) => (
+export default ({
+  id, title, userId, viewStatus, createdAt, updatedAt, deletedAt
+}: Props) => (
   <TableRow>
     <TableCell>{id}</TableCell>
     <TableCell>{title}</TableCell>

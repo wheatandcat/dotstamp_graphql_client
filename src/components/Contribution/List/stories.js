@@ -59,8 +59,8 @@ storiesOf("Contribution/List", module)
       title='foo'
       userId={1}
       viewStatus={1}
-      createdAt={"2010-10-01 10:00:00"}
-      updatedAt={"2010-10-01 10:00:00"}
+      createdAt='2010-10-01 10:00:00'
+      updatedAt='2010-10-01 10:00:00'
       deletedAt={null}
     />
   ))

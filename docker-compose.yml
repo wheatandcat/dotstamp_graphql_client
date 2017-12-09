@@ -1,0 +1,7 @@
+version: '2'
+services:
+  webapp:
+    image: dotstamp_graphql_client:latest
+    command: pushstate-server .
+    ports:
+      - "9000:9000"

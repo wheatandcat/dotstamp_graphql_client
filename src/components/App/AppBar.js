@@ -11,12 +11,17 @@ import MuiDrawer from "material-ui/Drawer"
 import Divider from "material-ui/Divider"
 import IconButton from "material-ui/IconButton"
 import ChevronLeftIcon from "material-ui-icons/ChevronLeft"
+import ChevronRighttIcon from "material-ui-icons/ChevronRight"
 import ListIcon from "material-ui-icons/List"
 import MenuIcon from "material-ui-icons/Menu"
 import EmailIcon from "material-ui-icons/Email"
 import InfoIcon from "material-ui-icons/Info"
 import LabelIcon from "material-ui-icons/Label"
-import MuiList, { ListItem as MuiListItem, ListItemIcon, ListItemText } from "material-ui/List"
+import MuiList, {
+  ListItem as MuiListItem,
+  ListItemIcon,
+  ListItemText as MuiListItemText
+} from "material-ui/List"
 import MuiFontAwesome from "react-fontawesome"
 import Logo from "./logo.png"
 
@@ -48,10 +53,10 @@ const Search = styled.div`
   }
 
   > div {
-    height: 2.6rem !important;
+    height: 3rem !important;
 
     > input {
-      padding-top: 1em !important;
+      padding-top: 1.5em !important;
       width: 10rem;
     }
   }
@@ -90,7 +95,7 @@ const Drawer = styled(MuiDrawer)`
             width: 14rem;
           `
       : css`
-            width: 3.5rem;
+            width: 5.5rem;
           `)};
   }
 `
@@ -109,7 +114,7 @@ const ListItem = styled(MuiListItem)`
 `
 
 const Toolbar = styled(MuiToolbar)`
-  padding-left: 0.25rem !important;
+  padding-left: 0.3rem !important;
 `
 
 const Typography = styled(MuiTypography)`
@@ -141,7 +146,7 @@ const ButtonGroup = styled.div`
 `
 
 const Contents = styled.div`
-  padding-top: 5rem;
+  padding-top: 8.5rem;
   transition: 0.25s;
 
   ${props =>
@@ -150,17 +155,26 @@ const Contents = styled.div`
           margin-left: 15rem;
         `
       : css`
-          margin-left: 5rem;
+          margin-left: 7rem;
         `)};
 `
 
+const Img = styled.img`
+  padding-left: 1.5rem;
+`
+
 const FontAwesome = styled(MuiFontAwesome)`
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   padding-left: 0.2rem;
 `
 
+const ListItemText = styled(MuiListItemText)`
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+`
+
 export default ({ title, children, open }: Props) => (
-  <Root>
+  <Root style={{ backgroundColor: "#F5F4F5" }}>
     <AppFrame open>
       <AppBar position='static' open={open}>
         <Toolbar>
@@ -168,7 +182,7 @@ export default ({ title, children, open }: Props) => (
             <MenuIcon />
           </IconButton>
 
-          <img src={Logo} alt='logo' title='logo' />
+          <Img src={Logo} alt='logo' title='logo' />
           <Typography type='search' color='inherit'>
             <Search>
               <label htmlFor='app_text'>
@@ -191,9 +205,7 @@ export default ({ title, children, open }: Props) => (
       <Drawer type='permanent' open={open}>
         <div>
           <Undo>
-            <IconButton>
-              <ChevronLeftIcon />
-            </IconButton>
+            <IconButton>{open ? <ChevronLeftIcon /> : <ChevronRighttIcon />}</IconButton>
           </Undo>
           <Divider />
           <List>
@@ -239,12 +251,8 @@ export default ({ title, children, open }: Props) => (
           </List>
         </div>
       </Drawer>
-      <main>
-        <Contents open={open}>
-          <Typography type='body1' noWrap>
-            {"You think water moves fast? You should see ice."}
-          </Typography>
-        </Contents>
+      <main style={{ width: "95%" }}>
+        <Contents open={open}>{children}</Contents>
       </main>
     </AppFrame>
   </Root>

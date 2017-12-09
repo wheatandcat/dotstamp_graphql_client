@@ -8,8 +8,4 @@ import AppBar from "./"
 storiesOf("App", module)
   .addDecorator(withKnobs)
   .addDecorator(center)
-  .add(" AppBar", () => (
-    <AppBar title='foo' open={boolean("open", false)}>
-      foo
-    </AppBar>
-  ))
+  .add(" AppBar", () => <AppBar open={boolean("open", false)}>foo</AppBar>)

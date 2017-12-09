@@ -1,16 +1,49 @@
 // @flow
 import React from "react"
-import Paper from "material-ui/Paper"
-import App from "../../App"
-import { type Props as ListProps } from "./List"
-import { List } from "./"
+import styled from "styled-components"
+import MuiTypography from "material-ui/Typography"
+import ListIcon from "material-ui-icons/List"
+import MuiPaper from "material-ui/Paper"
+import Thumbnail from "../Thumbnail"
 
-type Props = ListProps
+const Root = styled.div`
+  padding: 1rem 3rem;
+`
 
-export default ({ items }: Props) => (
-  <App title='投稿リスト'>
+const Item = styled.div`
+  margin 0.3rem 0;
+`
+const Paper = styled(MuiPaper)`
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+`
+
+const Typography = styled(MuiTypography)`
+  display: flex !important;
+  align-items: center !important;
+
+  > div {
+    > svg {
+      margin-right: 1rem;
+      margin-top: 0.25rem;
+    }
+  }
+`
+
+export default () => (
+  <Root>
     <Paper>
-      <List items={items} />
+      <Typography type='headline' component='h2'>
+        <div>
+          <ListIcon />
+        </div>
+        <div>新着投稿</div>
+      </Typography>
     </Paper>
-  </App>
+    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(item => (
+      <Item key={item}>
+        <Thumbnail />
+      </Item>
+    ))}
+  </Root>
 )

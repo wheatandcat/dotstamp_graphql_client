@@ -12,9 +12,7 @@ export type Props = {
   title: string,
   userId: number,
   viewStatus: number,
-  createdAt: string,
-  updatedAt: string,
-  deletedAt: ?string
+  createdAt: string
 }
 
 const Card = styled(MuiCard)`
@@ -67,17 +65,18 @@ const TagButton = styled(Button)`
   padding: 0 0.2rem 1rem 0.2rem !important;
   height: 1rem !important;
   min-width: 0 !important;
-  min-height: 1rem !important;
+  min-height: 1.5rem !important;
   text-transform: none !important;
 `
 
 const LabelIcon = styled(MuiLabelIcon)`
-  width: 1.25rem;
-  height: 1.25rem;
+  margin-top: 0.3rem;
+  width: 1.25rem !important;
+  height: 1.25rem !important;
 `
 
 export default ({
-  id, title, userId, viewStatus, createdAt, updatedAt, deletedAt
+  id, title, userId, viewStatus, createdAt
 }: Props) => (
   <Card>
     <CardMedia

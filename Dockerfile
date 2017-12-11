@@ -5,7 +5,7 @@ COPY . /root
 WORKDIR /root
 
 RUN npm install -g yarn && \
-    yarn install --pure-lockfile && \
+    yarn install --production && \
     yarn build
 
 WORKDIR /root/build

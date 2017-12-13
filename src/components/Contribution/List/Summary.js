@@ -37,7 +37,7 @@ export default () => (
         <div>
           <ListIcon />
         </div>
-        <div>新着投稿</div>
+        <div>新着投稿 deploy test</div>
       </Typography>
     </Paper>
     {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(item => (

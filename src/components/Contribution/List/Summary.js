@@ -6,6 +6,26 @@ import ListIcon from "material-ui-icons/List"
 import MuiPaper from "material-ui/Paper"
 import Thumbnail from "../Thumbnail"
 
+type Tags = {
+  id: number,
+  name: string
+}
+
+type ItemProps = {
+  createdAt: string,
+  follow: number,
+  id: number,
+  tags: Tags,
+  title: string,
+  updatedAt: string,
+  userId: number,
+  viewStatus: number
+}
+
+type Props = {
+  items: Array<ItemProps>
+}
+
 const Root = styled.div`
   padding: 1rem 3rem;
 `
@@ -30,19 +50,29 @@ const Typography = styled(MuiTypography)`
   }
 `
 
-export default () => (
+export default ({ items }: Props) => (
   <Root>
     <Paper>
       <Typography type='headline' component='h2'>
         <div>
           <ListIcon />
         </div>
-        <div>新着投稿 deploy test</div>
+        <div>新着投稿</div>
       </Typography>
     </Paper>
-    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(item => (
-      <Item key={item}>
-        <Thumbnail />
+    {items.map(({
+      createdAt, follow, id, title, userId, tags, viewStatus
+    }) => (
+      <Item key={id}>
+        <Thumbnail
+          createdAt={createdAt}
+          follow={follow}
+          id={id}
+          tags={tags}
+          title={title}
+          userId={userId}
+          viewStatus={viewStatus}
+        />
       </Item>
     ))}
   </Root>

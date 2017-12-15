@@ -14,12 +14,16 @@ export default withCharacter(
     query ContributionListAppQuery {
       contributionList(first: 100) {
         id
-        userId
         title
-        viewStatus
+        userId
+        userName
         createdAt
-        updatedAt
-        deletedAt
+        viewStatus
+        tags {
+          id
+          name
+        }
+        follow
       }
     }
   `,

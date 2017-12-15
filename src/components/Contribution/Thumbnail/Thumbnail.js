@@ -7,12 +7,19 @@ import ThumbUpIcon from "material-ui-icons/ThumbUp"
 import MuiLabelIcon from "material-ui-icons/Label"
 import Button from "material-ui/Button"
 
-export type Props = {
+type TagsProps = {
   id: number,
+  name: string
+}
+
+export type Props = {
+  createdAt: string,
+  follow: number,
+  id: number,
+  tags: TagsProps,
   title: string,
   userId: number,
-  viewStatus: number,
-  createdAt: string
+  viewStatus: number
 }
 
 const Card = styled(MuiCard)`
@@ -76,7 +83,7 @@ const LabelIcon = styled(MuiLabelIcon)`
 `
 
 export default ({
-  id, title, userId, viewStatus, createdAt
+  id, follow, title, userId, tags, viewStatus, createdAt
 }: Props) => (
   <Card>
     <CardMedia
@@ -85,14 +92,14 @@ export default ({
     />
     <Frame>
       <CardContent>
-        <Typography type='headline'>reactで、いい感じにhtmlを生成してcliツールを作る</Typography>
+        <Typography type='headline'>{title}</Typography>
         <Typography type='subheading' color='secondary'>
           <Word>
-            <div>by 麦と猫さんが、2017/01/01に投稿</div>
+            <div>by 麦と猫さんが、{createdAt}投稿</div>
             <div>
               <ThumbUpIcon />
             </div>
-            <div>10</div>
+            <div>{follow}</div>
           </Word>
         </Typography>
         <Tags type='subheading' color='secondary'>
@@ -100,15 +107,11 @@ export default ({
             <div>
               <LabelIcon />
             </div>
-            <div>
-              <TagButton dense>npm</TagButton>
-            </div>
-            <div>
-              <TagButton dense>javascript</TagButton>
-            </div>
-            <div>
-              <TagButton dense>cli</TagButton>
-            </div>
+            {tags.map(tag => (
+              <div key={tag.id}>
+                <TagButton dense>{tag.name}</TagButton>
+              </div>
+            ))}
           </Word>
         </Tags>
       </CardContent>

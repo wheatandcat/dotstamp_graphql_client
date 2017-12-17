@@ -1,5 +1,6 @@
 // @flow
 import React, { type Node } from "react"
+import { compose, withState, type HOC } from "recompose"
 import styled, { css } from "styled-components"
 import MuiAppBar from "material-ui/AppBar"
 import MuiToolbar from "material-ui/Toolbar"
@@ -27,8 +28,12 @@ import Logo from "./logo.png"
 
 export type Props = {
   children?: Node,
-  open?: boolean,
   title: string
+}
+
+type State = {
+  open: boolean,
+  setOpen: (open: boolean) => void
 }
 
 const Root = styled.div`
@@ -173,12 +178,16 @@ const ListItemText = styled(MuiListItemText)`
   padding-right: 0 !important;
 `
 
-export default ({ title, children, open }: Props) => (
+const enhance: HOC<State, Props> = compose(withState("open", "setOpen", false))
+
+const Plain = ({
+  title, children, open, setOpen
+}: Props & State) => (
   <Root style={{ backgroundColor: "#F5F4F5" }}>
     <AppFrame open>
       <AppBar position='static' open={open}>
         <Toolbar>
-          <IconButton>
+          <IconButton onClick={() => setOpen(!open)}>
             <MenuIcon />
           </IconButton>
 
@@ -205,7 +214,9 @@ export default ({ title, children, open }: Props) => (
       <Drawer type='permanent' open={open}>
         <div>
           <Undo>
-            <IconButton>{open ? <ChevronLeftIcon /> : <ChevronRighttIcon />}</IconButton>
+            <IconButton onClick={() => setOpen(!open)}>
+              {open ? <ChevronLeftIcon /> : <ChevronRighttIcon />}
+            </IconButton>
           </Undo>
           <Divider />
           <List>
@@ -257,3 +268,5 @@ export default ({ title, children, open }: Props) => (
     </AppFrame>
   </Root>
 )
+
+export default enhance(Plain)

@@ -12,22 +12,22 @@ storiesOf("Contribution/List", module)
       <Summary
         items={[
           {
+            createdAt: "2010-10-01 10:00:00",
+            follow: 1,
             id: 1,
+            tags: ["foo", "bar"],
             title: "foo",
             userId: 1,
-            viewStatus: 1,
-            createdAt: "2010-10-01 10:00:00",
-            updatedAt: "2010-10-01 10:00:00",
-            deletedAt: null
+            viewStatus: 1
           },
           {
+            createdAt: "2010-10-01 10:00:00",
+            follow: 1,
             id: 2,
+            tags: [],
             title: "bar",
             userId: 1,
-            viewStatus: 1,
-            createdAt: "2010-10-01 10:00:00",
-            updatedAt: "2010-10-01 10:00:00",
-            deletedAt: "2010-10-01 10:00:00"
+            viewStatus: 1
           }
         ]}
       />

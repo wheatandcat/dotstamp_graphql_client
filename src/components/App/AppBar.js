@@ -43,6 +43,7 @@ const Root = styled.div`
 `
 
 const AppFrame = styled.div`
+  min-width 60rem !important;
   position: relative;
   display: flex;
   width: 100%;
@@ -67,6 +68,7 @@ const Search = styled.div`
   }
 `
 const AppBar = styled(MuiAppBar)`
+  min-width 60rem !important;
   z-index: 1301 !important;
   position: absolute !important;
   background-color: #efdda0 !important;
@@ -138,6 +140,7 @@ const Undo = styled.div`
 `
 
 const ButtonGroup = styled.div`
+  min-width 30rem !important;
   transition: 0.25s;
 
   ${props =>

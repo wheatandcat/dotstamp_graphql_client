@@ -22,7 +22,9 @@ const Root = styled.div`
   align-items: center;
   width 100%;
 `
-const PlatformButton = styled(Button)`
+const PlatformButton = styled(({ backgroundColor, children, ...rest }) => (
+  <Button {...rest}>{children}</Button>
+))`
   margin: 1rem 0;
   width 100%;
   text-transform: none !important;

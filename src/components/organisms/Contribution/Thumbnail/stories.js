@@ -3,7 +3,7 @@ import React from "react"
 import { storiesOf } from "@storybook/react"
 import Thumbnail from "./"
 
-storiesOf("Contribution/Thumbnail", module).add("Thumbnail", () => (
+storiesOf("organisms/Contribution/Thumbnail", module).add("Thumbnail", () => (
   <Thumbnail
     createdAt='2010-10-01 10:00:00'
     follow={1}

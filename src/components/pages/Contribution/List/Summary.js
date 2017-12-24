@@ -4,7 +4,7 @@ import styled from "styled-components"
 import MuiTypography from "material-ui/Typography"
 import ListIcon from "material-ui-icons/List"
 import MuiPaper from "material-ui/Paper"
-import Thumbnail from "../Thumbnail"
+import Thumbnail from "../../../organisms/Contribution/Thumbnail"
 
 type Tags = {
   id: number,

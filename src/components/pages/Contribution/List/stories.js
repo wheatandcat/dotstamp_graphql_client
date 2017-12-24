@@ -2,10 +2,10 @@
 import React from "react"
 import { storiesOf } from "@storybook/react"
 import { withKnobs, boolean } from "@storybook/addon-knobs"
-import App from "../../App"
+import App from "../../../organisms/App"
 import { Summary } from "./"
 
-storiesOf("Contribution/List", module)
+storiesOf("pages/Contribution/List", module)
   .addDecorator(withKnobs)
   .add("Summary", () => (
     <App open={boolean("open", false)}>

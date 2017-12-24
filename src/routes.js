@@ -2,8 +2,8 @@
 import React from "react"
 import { BrowserRouter as Router, Route } from "react-router-dom"
 import Provider from "./Provider"
-import App from "./components/App"
-import ContributionList from "./components/Contribution/List"
+import App from "./components/organisms/App"
+import ContributionList from "./components/pages/Contribution/List"
 
 export default () => (
   <Provider>

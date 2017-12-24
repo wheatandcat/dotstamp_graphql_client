@@ -1,8 +1,8 @@
 // @flow
 import React from "react"
 import gql from "graphql-tag"
-import type { ContributionList } from "../../../api/contributionList"
-import withCharacter from "../../../connect"
+import type { ContributionList } from "../../../../api/contributionList"
+import withCharacter from "../../../../connect"
 import { Summary } from "./"
 
 const MuiFeedWithData = ({ contributionList }: { contributionList: ContributionList }) => (

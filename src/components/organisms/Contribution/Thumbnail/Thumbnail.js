@@ -1,7 +1,10 @@
 // @flow
 import React from "react"
 import styled from "styled-components"
-import MuiCard, { CardContent, CardMedia as MuiCardMedia } from "material-ui/Card"
+import MuiCard, {
+  CardContent,
+  CardMedia as MuiCardMedia
+} from "material-ui/Card"
 import Typography from "material-ui/Typography"
 import ThumbUpIcon from "material-ui-icons/ThumbUp"
 import MuiLabelIcon from "material-ui-icons/Label"
@@ -9,7 +12,7 @@ import Button from "material-ui/Button"
 
 type TagsProps = {
   id: number,
-  name: string
+  name: string,
 }
 
 export type Props = {
@@ -19,7 +22,7 @@ export type Props = {
   tags: TagsProps,
   title: string,
   userId: number,
-  viewStatus: number
+  viewStatus: number,
 }
 
 const Card = styled(MuiCard)`
@@ -83,7 +86,13 @@ const LabelIcon = styled(MuiLabelIcon)`
 `
 
 export default ({
-  id, follow, title, userId, tags, viewStatus, createdAt
+  id,
+  follow,
+  title,
+  userId,
+  tags,
+  viewStatus,
+  createdAt
 }: Props) => (
   <Card>
     <CardMedia

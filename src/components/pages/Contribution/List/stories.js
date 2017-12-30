@@ -1,7 +1,7 @@
 // @flow
 import React from "react"
 import { storiesOf } from "@storybook/react"
-import { withKnobs, boolean } from "@storybook/addon-knobs"
+import { withKnobs, boolean } from "@storybook/addon-knobs/react"
 import App from "../../../organisms/App"
 import { Summary } from "./"
 

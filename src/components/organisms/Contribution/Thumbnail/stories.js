@@ -1,6 +1,6 @@
 // @flow
 import React from "react"
-import { storiesOf } from "@storybook/react"
+import { storiesOf } from "@storybook/addon-knobs/react"
 import Thumbnail from "./"
 
 storiesOf("organisms/Contribution/Thumbnail", module).add("Thumbnail", () => (

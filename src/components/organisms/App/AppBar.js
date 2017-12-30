@@ -24,6 +24,7 @@ import MuiList, {
   ListItemText as MuiListItemText
 } from "material-ui/List"
 import MuiFontAwesome from "react-fontawesome"
+import { Link } from "react-router-dom"
 import Logo from "./logo.png"
 
 export type Props = {
@@ -67,6 +68,7 @@ const Search = styled.div`
     }
   }
 `
+
 const AppBar = styled(MuiAppBar)`
   min-width 60rem !important;
   z-index: 1301 !important;
@@ -90,7 +92,14 @@ const Drawer = styled(MuiDrawer)`
   overflow-x: hidden;
 
   ul {
-    width: 14rem;
+    ${props =>
+    (props.open
+      ? css`
+            width: 14rem;
+          `
+      : css`
+            width: 5.5rem;
+          `)};
   }
 
   > div {
@@ -207,19 +216,19 @@ const Plain = ({
             <Button color='accent' raised>
               お試し投稿
             </Button>
-            <Button color='primary' raised>
-              ユーザ登録
-            </Button>
+            <Link to='/users/create'>
+              <Button color='primary' raised>
+                会員登録
+              </Button>
+            </Link>
             <Button>ログインする</Button>
           </ButtonGroup>
         </Toolbar>
       </AppBar>
       <Drawer type='permanent' open={open}>
         <div>
-          <Undo>
-            <IconButton onClick={() => setOpen(!open)}>
-              {open ? <ChevronLeftIcon /> : <ChevronRighttIcon />}
-            </IconButton>
+          <Undo onClick={() => setOpen(!open)}>
+            <IconButton>{open ? <ChevronLeftIcon /> : <ChevronRighttIcon />}</IconButton>
           </Undo>
           <Divider />
           <List>
@@ -227,7 +236,7 @@ const Plain = ({
               <ListItemIcon>
                 <ListIcon />
               </ListItemIcon>
-              <ListItemText primary='新着投稿' />
+              <ListItemText primary={open ? "新着投稿" : ""} />
             </ListItem>
           </List>
           <List>
@@ -235,7 +244,7 @@ const Plain = ({
               <ListItemIcon>
                 <LabelIcon />
               </ListItemIcon>
-              <ListItemText primary='タグフィード' />
+              <ListItemText primary={open ? "タグフィード" : ""} />
             </ListItem>
           </List>
           <Divider />
@@ -244,7 +253,7 @@ const Plain = ({
               <ListItemIcon>
                 <EmailIcon />
               </ListItemIcon>
-              <ListItemText primary='問い合わせ' />
+              <ListItemText primary={open ? "問い合わせ" : ""} />
             </ListItem>
           </List>
           <List>
@@ -252,7 +261,7 @@ const Plain = ({
               <ListItemIcon>
                 <InfoIcon />
               </ListItemIcon>
-              <ListItemText primary='利用規約' />
+              <ListItemText primary={open ? "利用規約" : ""} />
             </ListItem>
           </List>
           <List>
@@ -260,7 +269,7 @@ const Plain = ({
               <ListItemIcon>
                 <FontAwesome name='github' />
               </ListItemIcon>
-              <ListItemText primary='GitHub' />
+              <ListItemText primary={open ? "GitHub" : ""} />
             </ListItem>
           </List>
         </div>

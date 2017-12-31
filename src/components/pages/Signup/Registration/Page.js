@@ -11,7 +11,7 @@ import ReCAPTCHA from "react-google-recaptcha"
 import { Regist } from "./"
 
 type Props = {
-  classes: *
+  classes: *,
 }
 
 type State = {
@@ -20,7 +20,7 @@ type State = {
   password: string,
   setCheck: (check: boolean) => void,
   setEmail: (email: string) => void,
-  setPassword: (password: string) => void
+  setPassword: (password: string) => void,
 }
 
 const Root = styled.div`
@@ -62,8 +62,8 @@ const Terms = styled.div`
 
 const styles = theme => ({
   leftIcon: {
-    marginRight: theme.spacing.unit
-  }
+    marginRight: theme.spacing.unit,
+  },
 })
 
 const enhance: HOC<State, Props> = compose(
@@ -79,7 +79,7 @@ const Plain = ({
   classes,
   setCheck,
   setEmail,
-  setPassword
+  setPassword,
 }: Props & State) => (
   <Root>
     <Paper>
@@ -112,7 +112,9 @@ const Plain = ({
           />
         </Recaptcha>
 
-        <Terms>利用規約に同意のうえ、「利用規約に同意して登録」ボタンを押してください。</Terms>
+        <Terms>
+          利用規約に同意のうえ、「利用規約に同意して登録」ボタンを押してください。
+        </Terms>
         <Regist disabled={!check} email={email} password={password} />
       </Container>
     </Paper>

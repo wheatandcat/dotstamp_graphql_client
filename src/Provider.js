@@ -10,14 +10,14 @@ const cache = new InMemoryCache()
 
 persistCache({
   cache,
-  storage: window.localStorage
+  storage: window.localStorage,
 })
 
 const client = new ApolloClient({
   link: new HttpLink({
-    uri: `${window.location.origin}/graphql`
+    uri: `${window.location.origin}/graphql`,
   }),
-  cache
+  cache,
 })
 
 export default ({ children }: { children: Node }) => (

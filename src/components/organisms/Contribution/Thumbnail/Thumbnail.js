@@ -3,7 +3,7 @@ import React from "react"
 import styled from "styled-components"
 import MuiCard, {
   CardContent,
-  CardMedia as MuiCardMedia
+  CardMedia as MuiCardMedia,
 } from "material-ui/Card"
 import Typography from "material-ui/Typography"
 import ThumbUpIcon from "material-ui-icons/ThumbUp"
@@ -92,7 +92,7 @@ export default ({
   userId,
   tags,
   viewStatus,
-  createdAt
+  createdAt,
 }: Props) => (
   <Card>
     <CardMedia

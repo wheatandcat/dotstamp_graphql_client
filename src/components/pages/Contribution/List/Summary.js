@@ -61,7 +61,7 @@ export default ({ items }: Props) => (
       </Typography>
     </Paper>
     {items.map(({
-      createdAt, follow, id, title, userId, tags, viewStatus
+      createdAt, follow, id, title, userId, tags, viewStatus,
     }) => (
       <Item key={id}>
         <Thumbnail

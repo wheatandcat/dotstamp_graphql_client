@@ -21,7 +21,7 @@ import LabelIcon from "material-ui-icons/Label"
 import MuiList, {
   ListItem as MuiListItem,
   ListItemIcon,
-  ListItemText as MuiListItemText
+  ListItemText as MuiListItemText,
 } from "material-ui/List"
 import MuiFontAwesome from "react-fontawesome"
 import { Link } from "react-router-dom"
@@ -193,7 +193,7 @@ const ListItemText = styled(MuiListItemText)`
 const enhance: HOC<State, Props> = compose(withState("open", "setOpen", false))
 
 const Plain = ({
-  title, children, open, setOpen
+  title, children, open, setOpen,
 }: Props & State) => (
   <Root style={{ backgroundColor: "#F5F4F5" }}>
     <AppFrame open>

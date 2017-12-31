@@ -65,8 +65,8 @@ const EmailIcon = styled(MuiEmailIcon)`
 
 const styles = theme => ({
   leftIcon: {
-    marginRight: theme.spacing.unit
-  }
+    marginRight: theme.spacing.unit,
+  },
 })
 
 const Plain = ({ classes }: Props) => (

@@ -15,6 +15,18 @@ parserOptions:
     jsx: true
   sourceType: module
 rules:
+  jsx-quotes:
+    - error
+    - prefer-double
+  arrow-parens:
+    - error
+    - as-needed
+  space-before-function-paren:
+    - error
+    - never
+  handle-callback-err:
+    - error
+    - error  
   comma-dangle:
     - error
     - arrays: always-multiline

@@ -84,29 +84,29 @@ const Plain = ({
   <Root>
     <Paper>
       <Title>
-        <Typography type='display1' gutterBottom>
+        <Typography type="display1" gutterBottom>
           会員情報入力
         </Typography>
       </Title>
       <Divider />
       <Container>
         <TextField
-          id='email'
-          label='メールアドレス'
-          margin='normal'
+          id="email"
+          label="メールアドレス"
+          margin="normal"
           onChange={event => setEmail(event.target.value)}
         />
         <TextField
-          id='password'
-          label='パスワード'
-          type='password'
-          margin='normal'
+          id="password"
+          label="パスワード"
+          type="password"
+          margin="normal"
           onChange={event => setPassword(event.target.value)}
         />
         <Recaptcha>
           <ReCAPTCHA
-            sitekey='6Ld3Wz0UAAAAANyEca8DU8Flb_DbPb58F1NqsTDi'
-            onChange={(value) => {
+            sitekey="6Ld3Wz0UAAAAANyEca8DU8Flb_DbPb58F1NqsTDi"
+            onChange={value => {
               setCheck(true)
             }}
           />

@@ -67,33 +67,33 @@ const Plain = ({ classes }: Props) => (
     <Paper>
       <Container>
         アカウントをお持ちでない方はこちら
-        <LoginButton raised color='primary'>
+        <LoginButton raised color="primary">
           新規会員登録
         </LoginButton>
       </Container>
       <Divider />
       <Container>
-        <PlatformButton raised backgroundColor='#D75452'>
-          <FontAwesome name='google' className={classes.leftIcon} />Googleでログイン
+        <PlatformButton raised backgroundColor="#D75452">
+          <FontAwesome name="google" className={classes.leftIcon} />Googleでログイン
         </PlatformButton>
-        <PlatformButton raised backgroundColor='#5FC0DD'>
-          <FontAwesome name='twitter' className={classes.leftIcon} />Twitterでログイン
+        <PlatformButton raised backgroundColor="#5FC0DD">
+          <FontAwesome name="twitter" className={classes.leftIcon} />Twitterでログイン
         </PlatformButton>
-        <PlatformButton raised backgroundColor='#377BB5'>
-          <FontAwesome name='facebook' className={classes.leftIcon} />facebookでログイン
+        <PlatformButton raised backgroundColor="#377BB5">
+          <FontAwesome name="facebook" className={classes.leftIcon} />facebookでログイン
         </PlatformButton>
-        <TextField id='email' label='メールアドレス' margin='normal' fullWidth />
+        <TextField id="email" label="メールアドレス" margin="normal" fullWidth />
         <div>
           <FormControl fullWidth>
-            <InputLabel htmlFor='password'>パスワード</InputLabel>
-            <Input id='password' type='password' />
+            <InputLabel htmlFor="password">パスワード</InputLabel>
+            <Input id="password" type="password" />
           </FormControl>
         </div>
         <Recaptcha>
-          <div className='g-recaptcha' data-sitekey='6Ld3Wz0UAAAAANyEca8DU8Flb_DbPb58F1NqsTDi' />
+          <div className="g-recaptcha" data-sitekey="6Ld3Wz0UAAAAANyEca8DU8Flb_DbPb58F1NqsTDi" />
         </Recaptcha>
         <div>
-          <LoginButton raised color='accent'>
+          <LoginButton raised color="accent">
             ログイン
           </LoginButton>
           パスワードをお忘れの方

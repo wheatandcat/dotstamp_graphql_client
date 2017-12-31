@@ -73,25 +73,25 @@ const Plain = ({ classes }: Props) => (
   <Root>
     <Paper>
       <Title>
-        <Typography type='display1' gutterBottom>
+        <Typography type="display1" gutterBottom>
           新規会員登録
         </Typography>
       </Title>
       <Divider />
       <Container>
-        <PlatformButton raised backgroundColor='#D75452'>
-          <FontAwesome name='google' className={classes.leftIcon} />Googleでログイン
+        <PlatformButton raised backgroundColor="#D75452">
+          <FontAwesome name="google" className={classes.leftIcon} />Googleでログイン
         </PlatformButton>
-        <PlatformButton raised backgroundColor='#5FC0DD'>
-          <FontAwesome name='twitter' className={classes.leftIcon} />Twitterでログイン
+        <PlatformButton raised backgroundColor="#5FC0DD">
+          <FontAwesome name="twitter" className={classes.leftIcon} />Twitterでログイン
         </PlatformButton>
-        <PlatformButton raised backgroundColor='#377BB5'>
-          <FontAwesome name='facebook' className={classes.leftIcon} />facebookでログイン
+        <PlatformButton raised backgroundColor="#377BB5">
+          <FontAwesome name="facebook" className={classes.leftIcon} />facebookでログイン
         </PlatformButton>
       </Container>
       <Divider />
       <Container>
-        <LoginButton raised color='contrast'>
+        <LoginButton raised color="contrast">
           <EmailIcon className={classes.leftIcon} /> メールアドレスで登録
         </LoginButton>
       </Container>

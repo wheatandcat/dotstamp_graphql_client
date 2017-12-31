@@ -26,7 +26,7 @@ const ErrorMessage = styled.div`
 `
 
 class NewEntry extends Component<Props, State> {
-  constructor () {
+  constructor() {
     super()
     this.onClick = this.onClick.bind(this)
   }
@@ -36,7 +36,7 @@ class NewEntry extends Component<Props, State> {
     error: "",
   }
 
-  onClick () {
+  onClick() {
     this.props
       .mutate({
         variables: {
@@ -50,15 +50,15 @@ class NewEntry extends Component<Props, State> {
           error: "",
         })
       })
-      .catch((error) => {
-        console.log(error)
+      .catch(() => {
         this.setState({
+          ok: false,
           error: "登録に失敗しました。更新してもう一度実行して下さい",
         })
       })
   }
 
-  render () {
+  render() {
     if (this.state.ok) {
       return <div>登録完了しました。TOPに移動する</div>
     }
@@ -72,7 +72,7 @@ class NewEntry extends Component<Props, State> {
         )}
         <RegistButton
           raised
-          color='accent'
+          color="accent"
           disabled={this.props.disabled}
           onClick={this.onClick}
         >

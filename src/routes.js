@@ -11,9 +11,9 @@ export default () => (
     <Router>
       <App>
         <div>
-          <Route exact path='/' component={ContributionList} />
-          <Route path='/contributionList' component={ContributionList} />
-          <Route path='/users/create' component={SignupRegistration} />
+          <Route exact path="/" component={ContributionList} />
+          <Route path="/contributionList" component={ContributionList} />
+          <Route path="/users/create" component={SignupRegistration} />
         </div>
       </App>
     </Router>

@@ -53,7 +53,7 @@ const Typography = styled(MuiTypography)`
 export default ({ items }: Props) => (
   <Root>
     <Paper>
-      <Typography type='headline' component='h2'>
+      <Typography type="headline" component="h2">
         <div>
           <ListIcon />
         </div>

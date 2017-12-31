@@ -96,13 +96,13 @@ export default ({
 }: Props) => (
   <Card>
     <CardMedia
-      image='https://dotstamp.com/static/images/common/icon.png'
-      title='Live from space album cover'
+      image="https://dotstamp.com/static/images/common/icon.png"
+      title="Live from space album cover"
     />
     <Frame>
       <CardContent>
-        <Typography type='headline'>{title}</Typography>
-        <Typography type='subheading' color='secondary'>
+        <Typography type="headline">{title}</Typography>
+        <Typography type="subheading" color="secondary">
           <Word>
             <div>by 麦と猫さんが、{createdAt}投稿</div>
             <div>
@@ -111,7 +111,7 @@ export default ({
             <div>{follow}</div>
           </Word>
         </Typography>
-        <Tags type='subheading' color='secondary'>
+        <Tags type="subheading" color="secondary">
           <Word>
             <div>
               <LabelIcon />

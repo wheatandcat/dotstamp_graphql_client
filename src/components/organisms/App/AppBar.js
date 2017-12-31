@@ -197,27 +197,27 @@ const Plain = ({
 }: Props & State) => (
   <Root style={{ backgroundColor: "#F5F4F5" }}>
     <AppFrame open>
-      <AppBar position='static' open={open}>
+      <AppBar position="static" open={open}>
         <Toolbar>
           <IconButton onClick={() => setOpen(!open)}>
             <MenuIcon />
           </IconButton>
 
-          <Img src={Logo} alt='logo' title='logo' />
-          <Typography type='search' color='inherit'>
+          <Img src={Logo} alt="logo" title="logo" />
+          <Typography type="search" color="inherit">
             <Search>
-              <label htmlFor='app_text'>
+              <label htmlFor="app_text">
                 <SearchIcon />
               </label>
-              <Input placeholder='キーワードを入力' id='app_text' />
+              <Input placeholder="キーワードを入力" id="app_text" />
             </Search>
           </Typography>
           <ButtonGroup open={open}>
-            <Button color='accent' raised>
+            <Button color="accent" raised>
               お試し投稿
             </Button>
-            <Link to='/users/create'>
-              <Button color='primary' raised>
+            <Link to="/users/create">
+              <Button color="primary" raised>
                 会員登録
               </Button>
             </Link>
@@ -225,7 +225,7 @@ const Plain = ({
           </ButtonGroup>
         </Toolbar>
       </AppBar>
-      <Drawer type='permanent' open={open}>
+      <Drawer type="permanent" open={open}>
         <div>
           <Undo onClick={() => setOpen(!open)}>
             <IconButton>{open ? <ChevronLeftIcon /> : <ChevronRighttIcon />}</IconButton>
@@ -267,7 +267,7 @@ const Plain = ({
           <List>
             <ListItem button>
               <ListItemIcon>
-                <FontAwesome name='github' />
+                <FontAwesome name="github" />
               </ListItemIcon>
               <ListItemText primary={open ? "GitHub" : ""} />
             </ListItem>

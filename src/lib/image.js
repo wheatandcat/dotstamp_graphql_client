@@ -1,7 +1,7 @@
 // @flow
 const host = "http://dotstamp.com/static/"
 
-function imageURL (file: string): string {
+function imageURL(file: string): string {
   return host + file
 }
 

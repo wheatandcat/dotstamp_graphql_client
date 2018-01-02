@@ -16,8 +16,9 @@ type Props = {
   disabled: boolean,
 }
 
-const RegistButton = styled(Button)`
-  margin: 2rem 0;
+const LoginButton = styled(Button)`
+  margin:  1rem 0 2rem 0;
+  width 100%;
 `
 
 const ErrorMessage = styled.div`
@@ -25,7 +26,11 @@ const ErrorMessage = styled.div`
  color: red;
 `
 
-class NewEntry extends Component<Props, State> {
+const OkMessage = styled.div`
+ font-size 1.5rem;
+`
+
+class UserLogin extends Component<Props, State> {
   constructor() {
     super()
     this.onClick = this.onClick.bind(this)
@@ -45,22 +50,30 @@ class NewEntry extends Component<Props, State> {
         },
       })
       .then(({ data }) => {
+        console.log(data.login.key)
+        window.localStorage.setItem("token", data.login.key)
         this.setState({
           ok: true,
           error: "",
         })
+        window.location.href = window.location.origin
       })
       .catch(() => {
         this.setState({
           ok: false,
-          error: "登録に失敗しました。",
+          error: "ログインに失敗しました。",
         })
       })
   }
 
   render() {
     if (this.state.ok) {
-      return <div>登録完了しました。TOPに移動する</div>
+      return (
+        <OkMessage>
+          ログインに成功しました。TOPに移動する<br />
+          <br />
+        </OkMessage>
+      )
     }
 
     return (
@@ -70,29 +83,25 @@ class NewEntry extends Component<Props, State> {
         ) : (
           ""
         )}
-        <RegistButton
+        <LoginButton
           raised
           color="accent"
           disabled={this.props.disabled}
           onClick={this.onClick}
         >
-          利用規約に同意して登録
-        </RegistButton>
+          ログイン
+        </LoginButton>
       </Fragment>
     )
   }
 }
 
-const submitRepository = gql`
-  mutation createUser($email: String, $password: String) {
-    createUser(email: $email, password: $password) {
-      id
-      name
-      email
+const submitLogin = gql`
+  mutation login($email: String, $password: String) {
+    login(email: $email, password: $password) {
+      key
     }
   }
 `
 
-const NewEntryWithData = graphql(submitRepository)(NewEntry)
-
-export default NewEntryWithData
+export default graphql(submitLogin)(UserLogin)

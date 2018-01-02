@@ -8,9 +8,10 @@ import Button from "material-ui/Button"
 import MuiPaper from "material-ui/Paper"
 import Typography from "material-ui/Typography"
 import FontAwesome from "react-fontawesome"
+import { Link } from "react-router-dom"
 
 type Props = {
-  classes: *
+  classes: *,
 }
 
 const Root = styled.div`
@@ -91,9 +92,11 @@ const Plain = ({ classes }: Props) => (
       </Container>
       <Divider />
       <Container>
-        <LoginButton raised color="contrast">
-          <EmailIcon className={classes.leftIcon} /> メールアドレスで登録
-        </LoginButton>
+        <Link to="/users/create">
+          <LoginButton raised color="contrast">
+            <EmailIcon className={classes.leftIcon} /> メールアドレスで登録
+          </LoginButton>
+        </Link>
       </Container>
     </Paper>
   </Root>

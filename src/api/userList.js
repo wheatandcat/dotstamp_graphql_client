@@ -1,10 +1,10 @@
 // @flow
-type User = {
+export type User = {
   id: number,
   name: string,
   email: string,
   profileImageId: number,
-  createdAt: string
+  createdAt: string,
 }
 
 export type UserList = Array<User>

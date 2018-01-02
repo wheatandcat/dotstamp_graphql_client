@@ -2,16 +2,15 @@
 import React from "react"
 import styled, { css } from "styled-components"
 import { withStyles } from "material-ui/styles"
-import TextField from "material-ui/TextField"
 import Divider from "material-ui/Divider"
-import Input, { InputLabel } from "material-ui/Input"
-import { FormControl } from "material-ui/Form"
 import Button from "material-ui/Button"
 import MuiPaper from "material-ui/Paper"
 import FontAwesome from "react-fontawesome"
+import { Link } from "react-router-dom"
+import { Form } from "./"
 
 type Props = {
-  classes: *
+  classes: *,
 }
 
 const Root = styled.div`
@@ -52,10 +51,6 @@ const Container = styled.div`
   justify-content: center;
 `
 
-const Recaptcha = styled.div`
-  padding: 2rem 0;
-`
-
 const styles = theme => ({
   leftIcon: {
     marginRight: theme.spacing.unit,
@@ -67,9 +62,11 @@ const Plain = ({ classes }: Props) => (
     <Paper>
       <Container>
         アカウントをお持ちでない方はこちら
-        <LoginButton raised color="primary">
-          新規会員登録
-        </LoginButton>
+        <Link to="/users/create">
+          <LoginButton raised color="primary">
+            新規会員登録
+          </LoginButton>
+        </Link>
       </Container>
       <Divider />
       <Container>
@@ -82,22 +79,8 @@ const Plain = ({ classes }: Props) => (
         <PlatformButton raised backgroundColor="#377BB5">
           <FontAwesome name="facebook" className={classes.leftIcon} />facebookでログイン
         </PlatformButton>
-        <TextField id="email" label="メールアドレス" margin="normal" fullWidth />
-        <div>
-          <FormControl fullWidth>
-            <InputLabel htmlFor="password">パスワード</InputLabel>
-            <Input id="password" type="password" />
-          </FormControl>
-        </div>
-        <Recaptcha>
-          <div className="g-recaptcha" data-sitekey="6Ld3Wz0UAAAAANyEca8DU8Flb_DbPb58F1NqsTDi" />
-        </Recaptcha>
-        <div>
-          <LoginButton raised color="accent">
-            ログイン
-          </LoginButton>
-          パスワードをお忘れの方
-        </div>
+
+        <Form />
       </Container>
     </Paper>
   </Root>

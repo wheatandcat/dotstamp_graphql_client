@@ -3,7 +3,6 @@ env:
   node: true
   jasmine: true
 extends:
-  - airbnb
   - standard
   - standard-react
 parser: babel-eslint
@@ -26,7 +25,7 @@ rules:
     - never
   handle-callback-err:
     - error
-    - error  
+    - error
   comma-dangle:
     - error
     - arrays: always-multiline
@@ -38,8 +37,7 @@ rules:
     - error
     - always
   indent:
-    - error
-    - 2
+    - 0
   quotes:
     - error
     - double

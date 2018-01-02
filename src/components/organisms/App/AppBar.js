@@ -4,8 +4,6 @@ import { compose, withState, type HOC } from "recompose"
 import styled, { css } from "styled-components"
 import MuiAppBar from "material-ui/AppBar"
 import MuiToolbar from "material-ui/Toolbar"
-import MuiTypography from "material-ui/Typography"
-import MuiButton from "material-ui/Button"
 import Input from "material-ui/Input"
 import MuiSearchIcon from "material-ui-icons/Search"
 import MuiDrawer from "material-ui/Drawer"
@@ -26,15 +24,17 @@ import MuiList, {
 import MuiFontAwesome from "react-fontawesome"
 import { Link } from "react-router-dom"
 import Logo from "./logo.png"
+import Guest from "./Guest"
+import { Connected } from "./"
 
 export type Props = {
   children?: Node,
-  title: string
+  title: string,
 }
 
 type State = {
   open: boolean,
-  setOpen: (open: boolean) => void
+  setOpen: (open: boolean) => void,
 }
 
 const Root = styled.div`
@@ -78,13 +78,13 @@ const AppBar = styled(MuiAppBar)`
   transition: 0.25s;
 
   ${props =>
-    (props.open
+    props.open
       ? css`
           margin-left: 14.1rem;
         `
       : css`
           margin-left: 0;
-        `)};
+        `};
 `
 
 const Drawer = styled(MuiDrawer)`
@@ -93,31 +93,27 @@ const Drawer = styled(MuiDrawer)`
 
   ul {
     ${props =>
-    (props.open
-      ? css`
+      props.open
+        ? css`
             width: 14rem;
           `
-      : css`
+        : css`
             width: 5.5rem;
-          `)};
+          `};
   }
 
   > div {
     transition: 0.25s;
 
     ${props =>
-    (props.open
-      ? css`
+      props.open
+        ? css`
             width: 14rem;
           `
-      : css`
+        : css`
             width: 5.5rem;
-          `)};
+          `};
   }
-`
-
-const Button = styled(MuiButton)`
-  margin 0 0.25rem;
 `
 
 const List = styled(MuiList)`
@@ -133,7 +129,7 @@ const Toolbar = styled(MuiToolbar)`
   padding-left: 0.3rem !important;
 `
 
-const Typography = styled(MuiTypography)`
+const Typography = styled.div`
   flex: 1;
   height: 3.25rem;
 `
@@ -148,32 +144,18 @@ const Undo = styled.div`
   height: 65px;
 `
 
-const ButtonGroup = styled.div`
-  min-width 30rem !important;
-  transition: 0.25s;
-
-  ${props =>
-    (props.open
-      ? css`
-          margin-right: 14.1rem;
-        `
-      : css`
-          margin-right: 0;
-        `)};
-`
-
 const Contents = styled.div`
   padding-top: 8.5rem;
   transition: 0.25s;
 
   ${props =>
-    (props.open
+    props.open
       ? css`
           margin-left: 15rem;
         `
       : css`
           margin-left: 7rem;
-        `)};
+        `};
 `
 
 const Img = styled.img`
@@ -192,9 +174,7 @@ const ListItemText = styled(MuiListItemText)`
 
 const enhance: HOC<State, Props> = compose(withState("open", "setOpen", false))
 
-const Plain = ({
-  title, children, open, setOpen,
-}: Props & State) => (
+const Plain = ({ title, children, open, setOpen }: Props & State) => (
   <Root style={{ backgroundColor: "#F5F4F5" }}>
     <AppFrame open>
       <AppBar position="static" open={open}>
@@ -202,8 +182,9 @@ const Plain = ({
           <IconButton onClick={() => setOpen(!open)}>
             <MenuIcon />
           </IconButton>
-
-          <Img src={Logo} alt="logo" title="logo" />
+          <Link to="/">
+            <Img src={Logo} alt="logo" title="logo" />
+          </Link>
           <Typography type="search" color="inherit">
             <Search>
               <label htmlFor="app_text">
@@ -212,23 +193,22 @@ const Plain = ({
               <Input placeholder="キーワードを入力" id="app_text" />
             </Search>
           </Typography>
-          <ButtonGroup open={open}>
-            <Button color="accent" raised>
-              お試し投稿
-            </Button>
-            <Link to="/users/create">
-              <Button color="primary" raised>
-                会員登録
-              </Button>
-            </Link>
-            <Button>ログインする</Button>
-          </ButtonGroup>
+
+          {(() => {
+            if (process.env.STORYBOOK_ENV === "storybook") {
+              return <Guest open={open} />
+            }
+
+            return <Connected open={open} />
+          })()}
         </Toolbar>
       </AppBar>
       <Drawer type="permanent" open={open}>
         <div>
           <Undo onClick={() => setOpen(!open)}>
-            <IconButton>{open ? <ChevronLeftIcon /> : <ChevronRighttIcon />}</IconButton>
+            <IconButton>
+              {open ? <ChevronLeftIcon /> : <ChevronRighttIcon />}
+            </IconButton>
           </Undo>
           <Divider />
           <List>

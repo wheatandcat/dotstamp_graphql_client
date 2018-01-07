@@ -3,4 +3,3 @@ example
 src/registerServiceWorker.js
 webpack.config.dev.override.js
 react-scripts-interceptor.js
-stories.js

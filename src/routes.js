@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom"
 import Provider from "./Provider"
 import App from "./components/organisms/App"
 import ContributionList from "./components/pages/Contribution/List"
+import ContributionDetail from "./components/pages/Contribution/Detail"
 import SignupRegistration from "./components/pages/Signup/Registration"
 import Signup from "./components/pages/Signup/Index"
 import Login from "./components/pages/Login"
@@ -15,6 +16,7 @@ export default () => (
         <div>
           <Route exact path="/" component={ContributionList} />
           <Route path="/contributionList" component={ContributionList} />
+          <Route path="/contributions/:id" component={ContributionDetail} />
           <Route path="/users/create" component={SignupRegistration} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />

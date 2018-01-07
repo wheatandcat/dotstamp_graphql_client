@@ -6811,6 +6811,14 @@ react-async-script@^0.9.1:
   dependencies:
     prop-types ">=15.5.0"
 
+react-chat-balloon@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/react-chat-balloon/-/react-chat-balloon-0.5.0.tgz#ade4db65d2742228b157894858c8afba3e044901"
+  dependencies:
+    react "^16.2.0"
+    react-dom "^16.2.0"
+    styled-components "^2.4.0"
+
 react-color@^2.11.4:
   version "2.13.8"
   resolved "https://registry.yarnpkg.com/react-color/-/react-color-2.13.8.tgz#bcc58f79a722b9bfc37c402e68cd18f26970aee4"
@@ -7972,7 +7980,7 @@ style-loader@^0.19.1:
     loader-utils "^1.0.2"
     schema-utils "^0.3.0"
 
-styled-components@^2.2.4:
+styled-components@^2.2.4, styled-components@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-2.4.0.tgz#086d0fd483d54638837fca3ea546a030b94adf75"
   dependencies:

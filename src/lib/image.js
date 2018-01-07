@@ -7,10 +7,14 @@ function imageURL(file: string): string {
 
 export const iconURL = (id: number): string => {
   if (id === 0) {
-    return imageURL("images//profile/default.png")
+    return imageURL("images/profile/default.png")
   }
 
   return imageURL(`files/icon/${id}.jpg`)
 }
 
 export default iconURL
+
+export function charaURL(fileName: string): string {
+  return imageURL(`files/character/${fileName}`)
+}

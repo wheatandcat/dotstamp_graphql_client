@@ -9,6 +9,7 @@ import Typography from "material-ui/Typography"
 import ThumbUpIcon from "material-ui-icons/ThumbUp"
 import MuiLabelIcon from "material-ui-icons/Label"
 import Button from "material-ui/Button"
+import { Link } from "react-router-dom"
 
 type TagsProps = {
   id: number,
@@ -101,7 +102,9 @@ export default ({
     />
     <Frame>
       <CardContent>
-        <Typography type="headline">{title}</Typography>
+        <Link to={`contributions/${id}`}>
+          <Typography type="headline">{title}</Typography>
+        </Link>
         <Typography type="subheading" color="secondary">
           <Word>
             <div>by 麦と猫さんが、{createdAt}投稿</div>

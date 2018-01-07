@@ -8,7 +8,7 @@ import { Page } from "./"
 const Plain = ({
   contributionDetail,
 }: {
-  contributionDetail: ContributionDetailProps,
+  contributionDetail: Array<ContributionDetailProps>,
 }) => {
   console.log(contributionDetail)
   if (contributionDetail === undefined) {
@@ -34,6 +34,7 @@ const ContributionDetail = gql`
 
 const PlainWithData = graphql(ContributionDetail, {
   options: ({ match }) => ({ variables: { id: match.params.id } }),
+  props: ({ data }) => ({ ...data }),
 })(Plain)
 
 export default PlainWithData

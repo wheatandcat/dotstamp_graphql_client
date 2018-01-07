@@ -4,7 +4,7 @@ import type { ContributionDetail as ContributionDetailProps } from "../../../../
 import List from "../../../organisms/Contribution/Chat/List"
 
 type Props = {
-  items: ContributionDetailProps,
+  items: Array<ContributionDetailProps>,
 }
 
 export default ({ items }: Props) => (

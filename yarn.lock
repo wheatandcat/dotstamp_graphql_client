@@ -6811,9 +6811,9 @@ react-async-script@^0.9.1:
   dependencies:
     prop-types ">=15.5.0"
 
-react-chat-balloon@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/react-chat-balloon/-/react-chat-balloon-0.5.0.tgz#ade4db65d2742228b157894858c8afba3e044901"
+react-chat-balloon@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/react-chat-balloon/-/react-chat-balloon-0.5.1.tgz#0f2d305f11ef2b75b824a5560d5c9ca37fc84ae9"
   dependencies:
     react "^16.2.0"
     react-dom "^16.2.0"

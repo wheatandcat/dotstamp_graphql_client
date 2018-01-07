@@ -22,8 +22,11 @@ type Props = {
 export default ({ items }: Props) => (
   <div>
     {items.map(({ body, character, priority }) => (
-      <div>
-        <AvatarBalloon avatarUtl={charaURL(character.fileName)}>
+      <div key={priority}>
+        <AvatarBalloon
+          avatarUtl={charaURL(character.fileName)}
+          avatarStyle={{ width: "10rem" }}
+        >
           {body}
         </AvatarBalloon>
       </div>

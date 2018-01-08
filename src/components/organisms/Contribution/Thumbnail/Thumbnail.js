@@ -10,19 +10,16 @@ import ThumbUpIcon from "material-ui-icons/ThumbUp"
 import MuiLabelIcon from "material-ui-icons/Label"
 import Button from "material-ui/Button"
 import { Link } from "react-router-dom"
-
-type TagsProps = {
-  id: number,
-  name: string,
-}
+import type { Tag } from "../../../../api/tag"
 
 export type Props = {
   createdAt: string,
   follow: number,
   id: number,
-  tags: TagsProps,
+  tags: Array<Tag>,
   title: string,
   userId: number,
+  userName: string,
   viewStatus: number,
 }
 
@@ -91,6 +88,7 @@ export default ({
   follow,
   title,
   userId,
+  userName,
   tags,
   viewStatus,
   createdAt,
@@ -107,7 +105,9 @@ export default ({
         </Link>
         <Typography type="subheading" color="secondary">
           <Word>
-            <div>by 麦と猫さんが、{createdAt}投稿</div>
+            <div>
+              by {userName}さんが、{createdAt}投稿
+            </div>
             <div>
               <ThumbUpIcon />
             </div>

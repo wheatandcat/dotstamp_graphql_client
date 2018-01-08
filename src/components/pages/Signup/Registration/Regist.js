@@ -1,4 +1,3 @@
-// @flow
 import React, { Fragment, Component } from "react"
 import styled from "styled-components"
 import { graphql } from "react-apollo"

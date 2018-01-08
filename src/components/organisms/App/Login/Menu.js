@@ -1,4 +1,3 @@
-// @flow
 import React from "react"
 import { compose, withState, type HOC } from "recompose"
 import styled, { css } from "styled-components"

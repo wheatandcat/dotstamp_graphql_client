@@ -1,4 +1,3 @@
-// @flow
 import { graphql } from "react-apollo"
 
 const withCharacter = query =>

@@ -11,7 +11,7 @@ import ReCAPTCHA from "react-google-recaptcha"
 import { Regist } from "./"
 
 type Props = {
-  classes: *,
+  classes?: *,
 }
 
 type State = {

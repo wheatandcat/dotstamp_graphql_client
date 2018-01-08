@@ -1,4 +1,3 @@
-// @flow
 import React, { type Node } from "react"
 import { compose, withState, type HOC } from "recompose"
 import styled, { css } from "styled-components"
@@ -29,7 +28,6 @@ import { Connected } from "./"
 
 export type Props = {
   children?: Node,
-  title: string,
 }
 
 type State = {
@@ -98,7 +96,7 @@ const Drawer = styled(MuiDrawer)`
             width: 14rem;
           `
         : css`
-            width: 5.5rem;
+            width: 6rem;
           `};
   }
 
@@ -111,7 +109,7 @@ const Drawer = styled(MuiDrawer)`
             width: 14rem;
           `
         : css`
-            width: 5.5rem;
+            width: 6rem;
           `};
   }
 `
@@ -172,11 +170,11 @@ const ListItemText = styled(MuiListItemText)`
   padding-right: 0 !important;
 `
 
-const enhance: HOC<State, Props> = compose(withState("open", "setOpen", false))
+const enhance: HOC<State, Props> = compose(withState("open", "setOpen", true))
 
-const Plain = ({ title, children, open, setOpen }: Props & State) => (
+const Plain = ({ children, open, setOpen }: Props & State) => (
   <Root style={{ backgroundColor: "#F5F4F5" }}>
-    <AppFrame open>
+    <AppFrame>
       <AppBar position="static" open={open}>
         <Toolbar>
           <IconButton onClick={() => setOpen(!open)}>

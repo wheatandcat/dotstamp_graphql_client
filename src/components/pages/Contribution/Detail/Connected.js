@@ -2,24 +2,33 @@
 import React from "react"
 import { graphql } from "react-apollo"
 import gql from "graphql-tag"
-import type { ContributionDetail as ContributionDetailProps } from "../../../../api/contributionDetail"
 import { Page } from "./"
 
-const Plain = ({
-  contributionDetail,
-}: {
-  contributionDetail: Array<ContributionDetailProps>,
-}) => {
+const Plain = ({ contribution, contributionDetail }: *) => {
   console.log(contributionDetail)
-  if (contributionDetail === undefined) {
+  console.log(contribution)
+  if (contributionDetail === undefined || contribution === undefined) {
     return <div />
   }
 
-  return <Page items={contributionDetail} />
+  return (
+    <Page
+      createdAt={contribution.createdAt}
+      items={contributionDetail}
+      title={contribution.title}
+      userId={contribution.userId}
+    />
+  )
 }
 
 const ContributionDetail = gql`
   query ContributionDetail($id: Int) {
+    contribution(id: $id) {
+      id
+      userId
+      title
+      createdAt
+    }
     contributionDetail(id: $id) {
       body
       priority

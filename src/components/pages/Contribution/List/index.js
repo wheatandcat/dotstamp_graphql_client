@@ -1,3 +1,3 @@
 // @flow
-export { default } from "./Page"
-export { default as Summary } from "./Summary"
+export { default } from "./Connected"
+export { default as Page } from "./Page"

@@ -70,6 +70,3 @@ rules:
       peerDependencies: false
   flowtype/no-weak-types:
     - error
-  flowtype/require-valid-file-annotation:
-    - error
-    - always

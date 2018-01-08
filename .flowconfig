@@ -1,4 +1,6 @@
 [ignore]
+.*/stories.js
+.*/registerServiceWorker.js
 
 [include]
 

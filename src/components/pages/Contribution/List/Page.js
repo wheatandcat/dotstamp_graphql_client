@@ -1,31 +1,70 @@
 // @flow
 import React from "react"
-import gql from "graphql-tag"
-import type { ContributionList } from "../../../../api/contributionList"
-import withCharacter from "../../../../connect"
-import { Summary } from "./"
+import styled from "styled-components"
+import MuiTypography from "material-ui/Typography"
+import ListIcon from "material-ui-icons/List"
+import MuiPaper from "material-ui/Paper"
+import Thumbnail from "../../../organisms/Contribution/Thumbnail"
+import type { Props } from "./Connected"
 
-const MuiFeedWithData = ({ contributionList }: { contributionList: ContributionList }) => (
-  <Summary items={contributionList || []} />
-)
+const Root = styled.div`
+  padding: 1rem 3rem;
+`
 
-export default withCharacter(
-  gql`
-    query ContributionListAppQuery {
-      contributionList(first: 100) {
-        id
-        title
-        userId
-        userName
-        createdAt
-        viewStatus
-        tags {
-          id
-          name
-        }
-        follow
-      }
+const Item = styled.div`
+  margin 0.3rem 0;
+`
+const Paper = styled(MuiPaper)`
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+`
+
+const Typography = styled(MuiTypography)`
+  display: flex !important;
+  align-items: center !important;
+
+  > div {
+    > svg {
+      margin-right: 1rem;
+      margin-top: 0.25rem;
     }
-  `,
-  MuiFeedWithData
+  }
+`
+
+export default ({ items }: Props) => (
+  <Root>
+    <Paper>
+      <Typography type="headline" component="h2">
+        <div>
+          <ListIcon />
+        </div>
+        <div>新着投稿</div>
+      </Typography>
+    </Paper>
+    {items.map(
+      ({
+        createdAt,
+        follow,
+        id,
+        title,
+        userId,
+        userName,
+        tags,
+        viewStatus,
+      }) => (
+        <Item key={id}>
+          <Thumbnail
+            createdAt={createdAt}
+            follow={follow}
+            id={id}
+            tags={tags}
+            title={title}
+            userId={userId}
+            userName={userName}
+            viewStatus={viewStatus}
+          />
+        </Item>
+      )
+    )}
+  </Root>
 )

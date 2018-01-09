@@ -49,7 +49,6 @@ class UserLogin extends Component<Props, State> {
         },
       })
       .then(({ data }) => {
-        console.log(data.login.key)
         window.localStorage.setItem("token", data.login.key)
         this.setState({
           ok: true,

@@ -3,6 +3,13 @@ import React from "react"
 import styled from "styled-components"
 import Button from "material-ui/Button"
 import ThumbUpIcon from "material-ui-icons/ThumbUp"
+import DoneIcon from "material-ui-icons/Done"
+import Tooltip from "material-ui/Tooltip"
+
+type Props = {
+  followCount: number,
+  followed?: boolean,
+}
 
 const Root = styled.div`
   text-align: center;
@@ -22,13 +29,29 @@ const FollowIcon = styled(Button)`
   color: #fff !important;
 `
 
-export default () => (
+export default ({ followCount, followed }: Props) => (
   <Root>
     <div>
-      <FollowCount>10</FollowCount>
-      <FollowIcon fab aria-label="add">
-        <ThumbUpIcon />
-      </FollowIcon>
+      <FollowCount>{followCount}</FollowCount>
+      {(() => {
+        if (followed) {
+          return (
+            <Tooltip id="tooltip-icon" placement="right" title="いいね済み">
+              <FollowIcon fab aria-label="followed">
+                <DoneIcon />
+              </FollowIcon>
+            </Tooltip>
+          )
+        }
+
+        return (
+          <Tooltip id="tooltip-icon" placement="right" title="いいね">
+            <FollowIcon fab aria-label="add">
+              <ThumbUpIcon />
+            </FollowIcon>
+          </Tooltip>
+        )
+      })()}
     </div>
   </Root>
 )

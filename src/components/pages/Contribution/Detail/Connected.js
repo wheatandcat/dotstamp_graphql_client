@@ -4,7 +4,12 @@ import { graphql } from "react-apollo"
 import gql from "graphql-tag"
 import { Page } from "./"
 
-const Plain = ({ contribution, contributionDetail }: *) => {
+const Plain = ({
+  contribution,
+  contributionDetail,
+  followList,
+  tagList,
+}: *) => {
   console.log(contributionDetail)
   console.log(contribution)
   if (contributionDetail === undefined || contribution === undefined) {
@@ -17,6 +22,13 @@ const Plain = ({ contribution, contributionDetail }: *) => {
       items={contributionDetail}
       title={contribution.title}
       userId={contribution.userId}
+      followCount={followList.length}
+      followed={
+        followList.filter(
+          item => item.userId === window.localStorage.getItem("userId")
+        ).length > 0
+      }
+      tags={tagList}
     />
   )
 }
@@ -37,6 +49,14 @@ const ContributionDetail = gql`
         fileName
         voiceType
       }
+    }
+    followList(id: $id) {
+      id
+      userId
+    }
+    tagList(id: $id) {
+      id
+      name
     }
   }
 `

@@ -6,7 +6,7 @@ import { provider } from "./decorators"
 addDecorator(provider)
 
 setOptions({
-  addonPanelInRight: true
+  addonPanelInRight: true,
 })
 
 const req = require.context("../src", true, /stories.js$/)

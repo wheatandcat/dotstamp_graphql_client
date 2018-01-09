@@ -41,7 +41,7 @@ const MyMenu = styled(MuiButton)`
 `
 
 const ButtonGroup = styled.div`
-  min-width 30rem !important;
+  min-width 40rem !important;
   transition: 0.25s;
 
   ${props =>
@@ -100,6 +100,7 @@ const Plain = ({
         onClick={() => {
           setOpenMenu(false)
           window.localStorage.removeItem("token")
+          window.localStorage.removeItem("userId")
           window.location.href = window.location.origin
         }}
       >

@@ -13,6 +13,8 @@ const Plain = ({ me, open }: { me: User, open: boolean }) => {
   }
 
   if (me.id > 0) {
+    window.localStorage.setItem("userId", me.id)
+
     return <Login open={open} name={me.name} />
   }
 

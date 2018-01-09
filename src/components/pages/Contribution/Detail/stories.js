@@ -1,7 +1,7 @@
 // @flow
 import React from "react"
 import { storiesOf } from "@storybook/react"
-import { withKnobs } from "@storybook/addon-knobs/react"
+import { withKnobs, boolean } from "@storybook/addon-knobs/react"
 import App from "../../../organisms/App"
 import { Page } from "./"
 
@@ -30,6 +30,9 @@ storiesOf("pages/Contribution/Detail", module)
             priority: 2,
           },
         ]}
+        followCount={10}
+        followed={boolean("followed", false)}
+        title="foo bar baz"
       />
     </App>
   ))

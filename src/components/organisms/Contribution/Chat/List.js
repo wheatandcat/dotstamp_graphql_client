@@ -22,7 +22,7 @@ type Props = {
 }
 
 const Frame = styled.div`
-  min-width 50rem !important;
+  min-width 40rem !important;
   margin: 0.25rem;
   padding 0.5rem;
 `

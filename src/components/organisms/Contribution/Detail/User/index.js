@@ -1,2 +1,3 @@
 // @flow
-export { default } from "./User"
+export { default } from "./Connected"
+export { default as User } from "./User"

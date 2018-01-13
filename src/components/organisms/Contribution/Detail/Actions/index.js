@@ -1,2 +1,3 @@
 // @flow
-export { default } from "./Buttons"
+export { default } from "./Side"
+export { default as Button } from "./Buttons"

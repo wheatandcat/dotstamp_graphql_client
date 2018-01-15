@@ -1,8 +1,11 @@
-// @flow
 import React from "react"
 import styled from "styled-components"
+import YouTube from "react-youtube"
+import { compose, withState, type HOC } from "recompose"
 import MuiTypography from "material-ui/Typography"
 import Hidden from "material-ui/Hidden"
+import Tabs, { Tab as MuiTab } from "material-ui/Tabs"
+import MuiAppBar from "material-ui/AppBar"
 import type { ContributionDetail as ContributionDetailProps } from "../../../../api/contributionDetail"
 import type { Tag } from "../../../../api/tag"
 import List from "../../../organisms/Contribution/Chat/List"
@@ -13,6 +16,11 @@ import User, {
   User as UserStorybook,
 } from "../../../organisms/Contribution/Detail/User"
 import Tags from "../../../organisms/Contribution/Detail/Tags"
+
+type State = {
+  tab: number,
+  setTab: (tab: number) => void,
+}
 
 type Props = {
   userId: number,
@@ -25,6 +33,15 @@ type Props = {
 
 const Typography = styled(MuiTypography)`
   padding: 0.75rem;
+`
+
+const AppBar = styled(MuiAppBar)`
+  background-color: #1d8bf1 !important;
+  margin: 1rem 0;
+`
+
+const Tab = styled(MuiTab)`
+  max-width: none !important;
 `
 
 const ActionZone = styled.div`
@@ -47,14 +64,25 @@ const Root = styled.div`
   padding: 1rem 2rem;
 `
 
-export default ({
+const Movie = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+`
+
+const enhance: HOC<State, Props> = compose(withState("tab", "setTab", 0))
+
+const Plain = ({
   items,
   followCount,
   followed,
   tags,
   title,
   userId,
-}: Props) => (
+  tab,
+  setTab,
+}: Props & State) => (
   <Root>
     <Hidden mdDown>
       <Side>
@@ -79,7 +107,22 @@ export default ({
       <Hidden lgUp>
         <ActionsButton followCount={followCount} followed={followed} />
       </Hidden>
-      <List items={items} />
+
+      <AppBar position="static">
+        <Tabs value={tab} onChange={(event, value) => setTab(value)} fullWidth>
+          <Tab label="記事" />
+          <Tab label="Youtube" />
+        </Tabs>
+      </AppBar>
+
+      {tab === 0 && <List items={items} />}
+      {tab === 1 && (
+        <Movie>
+          <YouTube videoId="LHGPkS-HjZs" />
+        </Movie>
+      )}
     </Main>
   </Root>
 )
+
+export default enhance(Plain)

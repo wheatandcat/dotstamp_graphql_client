@@ -29,6 +29,7 @@ type Props = {
   followed: boolean,
   title: string,
   tags: Array<Tag>,
+  movieId: string,
 }
 
 const Typography = styled(MuiTypography)`
@@ -82,6 +83,7 @@ const Plain = ({
   userId,
   tab,
   setTab,
+  movieId,
 }: Props & State) => (
   <Root>
     <Hidden mdDown>
@@ -111,14 +113,14 @@ const Plain = ({
       <AppBar position="static">
         <Tabs value={tab} onChange={(event, value) => setTab(value)} fullWidth>
           <Tab label="記事" />
-          <Tab label="Youtube" />
+          {movieId !== "" ? <Tab label="Youtube" /> : null}
         </Tabs>
       </AppBar>
 
       {tab === 0 && <List items={items} />}
       {tab === 1 && (
         <Movie>
-          <YouTube videoId="LHGPkS-HjZs" />
+          <YouTube videoId={movieId} />
         </Movie>
       )}
     </Main>

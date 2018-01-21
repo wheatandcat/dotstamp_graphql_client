@@ -2,6 +2,7 @@
 import React from "react"
 import { graphql } from "react-apollo"
 import gql from "graphql-tag"
+import { CircularProgress } from "material-ui/Progress"
 import { Page } from "./"
 
 const Plain = ({
@@ -9,11 +10,10 @@ const Plain = ({
   contributionDetail,
   followList,
   tagList,
+  movie,
 }: *) => {
-  console.log(contributionDetail)
-  console.log(contribution)
   if (contributionDetail === undefined || contribution === undefined) {
-    return <div />
+    return <CircularProgress />
   }
 
   return (
@@ -29,6 +29,7 @@ const Plain = ({
         ).length > 0
       }
       tags={tagList}
+      movieId={movie.movieId}
     />
   )
 }
@@ -57,6 +58,9 @@ const ContributionDetail = gql`
     tagList(id: $id) {
       id
       name
+    }
+    movie(id: $id) {
+      movieId
     }
   }
 `

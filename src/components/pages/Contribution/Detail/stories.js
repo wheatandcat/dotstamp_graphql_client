@@ -25,6 +25,7 @@ storiesOf("pages/Contribution/Detail", module)
         followed={boolean("followed", false)}
         title="foo bar baz"
         tags={[{ id: 1, name: "foo" }, { id: 2, name: "foobarbaz" }]}
+        movieId="LHGPkS-HjZs"
       />
     </App>
   ))

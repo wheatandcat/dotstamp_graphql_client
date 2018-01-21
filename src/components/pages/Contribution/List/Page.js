@@ -2,7 +2,6 @@
 import React from "react"
 import styled from "styled-components"
 import MuiTypography from "material-ui/Typography"
-import ListIcon from "material-ui-icons/List"
 import MuiPaper from "material-ui/Paper"
 import Thumbnail from "../../../organisms/Contribution/Thumbnail"
 import type { Props } from "./Connected"
@@ -35,9 +34,6 @@ export default ({ items }: Props) => (
   <Root>
     <Paper>
       <Typography type="headline" component="h2">
-        <div>
-          <ListIcon />
-        </div>
         <div>新着投稿</div>
       </Typography>
     </Paper>

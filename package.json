@@ -21,6 +21,7 @@
     "react-async-script": "^0.9.1",
     "react-chat-balloon": "^0.5.1",
     "react-dom": "^16.2.0",
+    "react-dropzone": "^4.2.7",
     "react-fontawesome": "^1.6.1",
     "react-google-recaptcha": "^0.9.9",
     "react-popper": "^0.7.5",
